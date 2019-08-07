@@ -15,4 +15,4 @@ for i in range(0,len(a)):
         if a[i]>max:
             max = a[i]
 
-print("The maximum value:"+str(max))
+print("The maximum value:"+str(max)) 
