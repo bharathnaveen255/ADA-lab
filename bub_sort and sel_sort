@@ -1,5 +1,5 @@
 #selection sort
-
+print("selection sort:\n")
 def sel_sort_kth_smallest(a,k):
     for i in range(0,k):
         mini = i
@@ -17,7 +17,7 @@ for i in range(0,5):
     t = int(input())
     a.append(t)
 
-k = int(input("VALUE OF K:"))
+k = int(input("VALUE OF K(smallest):"))
     
 
 print(sel_sort_kth_smallest(a,k))
@@ -39,16 +39,17 @@ for i in range(0,5):
     t = int(input())
     a.append(t)
 
-k = int(input("VALUE OF K:"))
+k = int(input("VALUE OF K(largest):"))
     
 
 print(sel_sort_kth_largest(a,k))
 
 
 #bubble sort
+print("bubble sort\n:")
 
 def bub_sort_kth_smallest(a,k):
-    for i in range(0,k):
+    for i in rahttps://github.com/1bm17cs074-ravi/ADA-lab/blob/master/bub_sort%20and%20sel_sortnge(0,k):
         for j in range(0,len(a)-1-i):
             if a[j+1]<a[j]:
                 a[j],a[j+1] = a[j+1],a[j]
@@ -60,7 +61,7 @@ for i in range(0,5):
     t = int(input())
     a.append(t)
     
-k = int(input("Enter the value of k:"))
+k = int(input("Enter the value of k:(smallest)"))
 
 print(bub_sort_kth_smallest(a,k))
 
@@ -78,7 +79,7 @@ for i in range(0,5):
     t = int(input())
     a.append(t)
     
-k = int(input("Enter the value of k:"))
+k = int(input("Enter the value of k:(largest)"))
 
 print(bub_sort_kth_largest(a,k))
 
