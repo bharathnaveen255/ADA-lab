@@ -1,27 +1,38 @@
-arr = [[0 for i in range(5)] for j in range(5)]
-visited = [0]*5
-n = 3
+class Graph: 
+    def __init__(self,V): 
+        self.V = V 
+        self.adj = [[] for i in range(V)] 
 
-def dfs(v):
-    print(v)
-    visited[v] = 1
-    for i in range(n):
-        if arr[v][i] and not visited[i]:
-            dfs(i)
+    def DFSUtil(self, temp, v, visited): 
+        visited[v] = True
+        temp.append(v) 
+        for i in self.adj[v]: 
+            if visited[i] == False: 
+                temp = self.DFSUtil(temp, i, visited) 
+        return temp 
 
-def connected():
-    for i in range(n):
-        if not visited[i]:
-            dfs(i)
-            print("\n")
+    def addEdge(self, v, w): 
+        self.adj[v].append(w) 
+        self.adj[w].append(v) 
+
+    def connectedComponents(self): 
+        visited = [] 
+        cc = [] 
+        for i in range(self.V): 
+            visited.append(False) 
+        for v in range(self.V): 
+            if visited[v] == False: 
+                temp = [] 
+                cc.append(self.DFSUtil(temp, v, visited)) 
+        return cc 
+
+n,p = list(map(int,input().split()))
+
+g = Graph(n); 
+for i in range(p) :
+    p1,p2 = list(map(int,input().split()))
+    g.addEdge(p1,p2)
+cc = g.connectedComponents() 
+print(cc) 
 
 
-for i in range(n):
-    for j in range(n):
-        t = int(input())
-        arr[i][j] = t
-    visited[i] = 0
-
-connected()
-
-    
